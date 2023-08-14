@@ -18,6 +18,10 @@ const Home = () => {
       <Text style={styles.normalText}>
         Some normal text below the button
       </Text>
+      <View style={styles.bottomTextRow}>
+        <Text style={styles.bottomLeftText}>Kingenic Privacy Notice </Text>
+        <Text style={styles.bottomRightText}>Corporate website </Text>
+      </View>
     </View>
   );
 };
