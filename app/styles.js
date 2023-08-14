@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#4287f5",
     padding: 15,
     borderRadius: 8,
+    width:300,
     marginBottom: 40,
   },
   buttonText: {
