@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import styles from "./styles";
 
 const Home = () => {
@@ -10,6 +10,9 @@ const Home = () => {
 
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <View style={styles.logo}>
+        <Image source={require('../assets/images/biglogo.png')} style={styles.logoImage} />
+      </View>
       <Text style={styles.welcome}>Welcome</Text>
       <Text style={styles.welcome1}>Browse, connect and discover kingenic offerings and resources</Text>
       <TouchableOpacity style={styles.button} onPress={handleGetStarted}>
