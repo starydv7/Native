@@ -17,7 +17,7 @@ const Landing = () => {
       What would you like to {'\n'}explore today?
 
       </Text>
-      <ScrollView style={styles.cardScrollContainer}>
+      <ScrollView style={styles.CardScrollContainer}>
         <View style={styles.cardContainer}>
           {/* Card 1 */}
           <View style={styles.card}>
