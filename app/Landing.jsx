@@ -17,22 +17,24 @@ const Landing = () => {
       What would you like to {'\n'}explore today?
 
       </Text>
-      <ScrollView style={styles.CardScrollContainer}>
-        <View style={styles.cardContainer}>
-          {/* Card 1 */}
-          <View style={styles.card}>
-            <Text>Card 135pawan</Text>
-          </View>
+      <ScrollView contentContainerStyle={styles.cardContainer}>
+        {/* Card 1 */}
+        <View style={styles.card}>
+        <Image
+            source={require('../assets/images/product1.png')} 
+            style={styles.cardImage}
+          />
+          <Text>Card 1</Text>
+        </View>
 
-          {/* Card 2 */}
-          <View style={styles.card}>
-            <Text>Card 2</Text>
-          </View>
+        {/* Card 2 */}
+        <View style={styles.card}>
+          <Text>Card 2</Text>
+        </View>
 
-          {/* Card 3 */}
-          <View style={styles.card}>
-            <Text>Card 3</Text>
-          </View>
+        {/* Card 3 */}
+        <View style={styles.card}>
+          <Text>Card 3</Text>
         </View>
       </ScrollView>
     </View>

@@ -25,26 +25,25 @@ const styles = StyleSheet.create({
     marginLeft:-25,
     textAlign:"left"
   },
-  cardContainer:{
-    flex:1,
-    backgroundColor:"red",
-    width:"100%",
-    top:9,
-    height:"50%"
+  cardContainer: {
+    marginTop: 10,
+    width: "100%",
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
   },
   card: {
-    width: '90%', // Adjust the width as needed
-    height: 300,
+    width:343,
+    height:350,
+    top:20,
     backgroundColor: '#f0f0f0',
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#ccc',
-    justifyContent: 'center', // Center vertically
-    alignItems: 'center',     // Center horizontally
-   margin:10,
-   marginLeft:20,
-},
+    marginHorizontal: 5,
+    marginVertical: 15,
+  },
 
 
 });
