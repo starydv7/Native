@@ -21,7 +21,7 @@ const Landing = () => {
         <View style={styles.cardContainer}>
           {/* Card 1 */}
           <View style={styles.card}>
-            <Text>Card 13</Text>
+            <Text>Card 135</Text>
           </View>
 
           {/* Card 2 */}
