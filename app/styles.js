@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#8600EF",
     padding: 15,
-    borderRadius: 8,
+    borderRadius: 10,
     marginBottom: 20,
     width:340,
   },
@@ -74,10 +74,14 @@ const styles = StyleSheet.create({
   bottomLeftText: {
     fontSize: 10,
     textAlign: "left",
+    color:"#000000CC",
+    lineHeight:11.4,
   },
   bottomRightText: {
     fontSize: 10,
     textAlign: "right",
+    color:"#000000CC",
+    lineHeight:11.4,
   },
 });
 
