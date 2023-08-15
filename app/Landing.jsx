@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import styles from "./landing";
 
@@ -14,14 +14,27 @@ const Landing = () => {
     <View style={styles.topmost}>
       <Text style={styles.hello}>Hello !</Text>
       <Text style={styles.hello1}>
-      What would you like to explore today?
+      What would you like to {'\n'}explore today?
 
       </Text>
-      <View style={styles.cardContainer}>
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
-      </View>
+      <ScrollView style={styles.cardScrollContainer}>
+        <View style={styles.cardContainer}>
+          {/* Card 1 */}
+          <View style={styles.card}>
+            <Text>Card 1</Text>
+          </View>
+
+          {/* Card 2 */}
+          <View style={styles.card}>
+            <Text>Card 2</Text>
+          </View>
+
+          {/* Card 3 */}
+          <View style={styles.card}>
+            <Text>Card 3</Text>
+          </View>
+        </View>
+      </ScrollView>
     </View>
   );
 };

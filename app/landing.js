@@ -12,34 +12,41 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     position: 'absolute',
-    top: 15,
+    top: 35,
     left: 20, // Adjusting the left margin for better positioning
   },
   hello1: {
-    marginTop: -70, // Using marginTop instead of top
+    marginTop: 150, // Using marginTop instead of top
     width: 320,
     height: 74,
     fontSize: 24,
     lineHeight: 30, // Correcting the property name to lineHeight
-    textAlign: 'center', // Center aligning the text
-    marginLeft:10,
+    // textAlign: 'center', // Center aligning the text
+    marginLeft:-25,
+    textAlign:"left"
   },
-  cardContainer: {
-    marginTop: 40, // Adjusting the spacing between text and cards
-    alignItems: 'center', // Centering the cards horizontally
+  cardContainer:{
+    flex:1,
+    backgroundColor:"red",
+    width:"100%",
+    top:9,
+    height:"50%"
   },
   card: {
-    width: '80%',
-    height: 100,
-    backgroundColor: 'white',
-    borderRadius: 8,
-    marginBottom: 10,
-    shadowColor: 'black',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 5,
-  },
+    width: '90%', // Adjust the width as needed
+    height: 300,
+    backgroundColor: '#f0f0f0',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    justifyContent: 'center', // Center vertically
+    alignItems: 'center',     // Center horizontally
+   margin:10,
+   marginLeft:20,
+},
+
+
 });
 
 export default styles;
