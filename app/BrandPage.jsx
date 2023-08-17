@@ -7,23 +7,18 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  Animated
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./brand";
 import Video from "react-native-video";
 import BottomNavigationBar from "./BottomNavigationBar";
-import { useSharedValue, withSpring, useAnimatedStyle } from 'react-native-reanimated';
+
 const Brand = () => {
   const navigation = useNavigation();
   const [showMore, setShowMore] = useState(false);
   const [searchText, setSearchText] = useState("");
-  const scrollY = useSharedValue(0);
-  const animatedContainerStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ translateY: withSpring(-scrollY.value * 0.5) }],
-    };
-  });
+ 
+
   const handleNavigateBack = () => {
     navigation.goBack(); // Go back to the previous screen
   };
@@ -59,12 +54,7 @@ const Brand = () => {
           placeholderTextColor="#999"
         />
       </View>
-      <ScrollView contentContainerStyle={styles.cardContainer} 
-       onScroll={(event) => (scrollY.value = event.nativeEvent.contentOffset.y)}
-        scrollEventThrottle={16}>
-           <Animated.View style={[styles.features, animatedContainerStyle]}>
-          {/* Your feature components here */}
-       
+      <ScrollView contentContainerStyle={styles.cardContainer}>
         {/* Card 1 */}
         <TouchableOpacity onPress={handleProduct}>
         <View style={styles.card}>
@@ -161,7 +151,6 @@ const Brand = () => {
           A proper diet is essential for tissue building for all stages of wound healing, but sometimes the normal diet is not enough. Juven may help by providing essential nutrients, such as arginine and glutamine, that are needed for wound healing. Juven has been clinically shown 
           </Text>
         </View>
-        </Animated.View>
       </ScrollView>
      
       <BottomNavigationBar/>

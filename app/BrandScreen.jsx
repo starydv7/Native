@@ -18,19 +18,19 @@ const BrandScreen = () => {
   const navigation = useNavigation();
   const [showMore, setShowMore] = useState(false);
   const [searchText, setSearchText] = useState("");
-  const [scrollY] = useState(new Animated.Value(0));
+
   
 
-  const handleScroll = Animated.event(
-    [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-    { useNativeDriver: false }
-  );
+//   const handleScroll = Animated.event(
+//     [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+//     { useNativeDriver: false }
+//   );
 
-  const opacity = scrollY.interpolate({
-    inputRange: [0, 100],
-    outputRange: [1, 0],
-    extrapolate: 'clamp',
-  });
+//   const opacity = scrollY.interpolate({
+//     inputRange: [0, 100],
+//     outputRange: [1, 0],
+//     extrapolate: 'clamp',
+//   });
 
   const handleNavigateBack = () => {
     navigation.goBack(); // Go back to the previous screen
@@ -80,9 +80,9 @@ const BrandScreen = () => {
     <View style={styles.topmost}>
      
      
-      <ScrollView contentContainerStyle={styles.cardContainer} onScroll={handleScroll}>
+      <ScrollView contentContainerStyle={styles.cardContainer}>
         {/* Card 1 */} 
-        <Animated.View style={{ opacity }}>
+        
         {/* Your scrollable content */}
       
         <View style={styles.card1}>
@@ -93,7 +93,6 @@ const BrandScreen = () => {
           />
       </View>
           {renderCards()}
-          </Animated.View>
       </ScrollView>
 
      
