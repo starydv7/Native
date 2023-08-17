@@ -7,23 +7,29 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
+  Animated
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./brand";
 import Video from "react-native-video";
 import BottomNavigationBar from "./BottomNavigationBar";
-
+import { useSharedValue, withSpring, useAnimatedStyle } from 'react-native-reanimated';
 const Brand = () => {
   const navigation = useNavigation();
   const [showMore, setShowMore] = useState(false);
   const [searchText, setSearchText] = useState("");
-
+  const scrollY = useSharedValue(0);
+  const animatedContainerStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ translateY: withSpring(-scrollY.value * 0.5) }],
+    };
+  });
   const handleNavigateBack = () => {
     navigation.goBack(); // Go back to the previous screen
   };
 
   const handleProduct = () => {
-    navigation.navigate("product");
+    navigation.navigate("BrandScreen");
   };
 
   const toggleShowMore = () => {
@@ -53,46 +59,109 @@ const Brand = () => {
           placeholderTextColor="#999"
         />
       </View>
-      <ScrollView contentContainerStyle={styles.cardContainer}>
+      <ScrollView contentContainerStyle={styles.cardContainer} 
+       onScroll={(event) => (scrollY.value = event.nativeEvent.contentOffset.y)}
+        scrollEventThrottle={16}>
+           <Animated.View style={[styles.features, animatedContainerStyle]}>
+          {/* Your feature components here */}
+       
         {/* Card 1 */}
         <TouchableOpacity onPress={handleProduct}>
         <View style={styles.card}>
+          <View>
+          <Text style={styles.cat1}>Advance Wound Management </Text>
+          <Text style={styles.catbrand}>Therapeutic Nutrition</Text>
+          </View>
+           
         <Image
-            source={require('../assets/images/product1.png')} 
+            source={require('../assets/images/brand1.png')} 
             style={styles.cardImage}
           />
-          <Text style={styles.cat1}>Product Catalogue </Text>
+         
           <Text style={styles.catText}>
-            Explore our branded portfolio and private label offerings
+          A proper diet is essential for tissue building for all stages of wound healing, but sometimes the normal diet is not enough. Juven may help by providing essential nutrients, such as arginine and glutamine, that are needed for wound healing. Juven has been clinically shown 
           </Text>
         </View>
         </TouchableOpacity>
 
         {/* Card 2 */}
         <View style={styles.card}>
+          <View>
+          <Text style={styles.cat1}>Advance Wound Management </Text>
+          <Text style={styles.catbrand}>Therapeutic Nutrition</Text>
+          </View>
+           
         <Image
-            source={require('../assets/images/cat1.png')} 
+            source={require('../assets/images/brand1.png')} 
             style={styles.cardImage}
           />
-          <Text style={styles.cat2}>Customer Portal</Text>
+         
           <Text style={styles.catText}>
-             Retrieve product documents and request support service
+          A proper diet is essential for tissue building for all stages of wound healing, but sometimes the normal diet is not enough. Juven may help by providing essential nutrients, such as arginine and glutamine, that are needed for wound healing. Juven has been clinically shown 
           </Text>
-          {/* <Text>Card 2</Text> */}
         </View>
-
         {/* Card 3 */}
         <View style={styles.card}>
+          <View>
+          <Text style={styles.cat1}>Advance Wound Management </Text>
+          <Text style={styles.catbrand}>Therapeutic Nutrition</Text>
+          </View>
+           
         <Image
-            source={require('../assets/images/cat2.png')} 
+            source={require('../assets/images/brand1.png')} 
             style={styles.cardImage}
           />
-          <Text style={styles.cat2}> Learning Center </Text>
-          <Text style={styles.catText1}>
-            Find out about the latest research, and how nutrition can help you stay healthy
+         
+          <Text style={styles.catText}>
+          A proper diet is essential for tissue building for all stages of wound healing, but sometimes the normal diet is not enough. Juven may help by providing essential nutrients, such as arginine and glutamine, that are needed for wound healing. Juven has been clinically shown 
           </Text>
-          {/* <Text>Card 3</Text> */}
         </View>
+        <View style={styles.card}>
+          <View>
+          <Text style={styles.cat1}>Advance Wound Management </Text>
+          <Text style={styles.catbrand}>Therapeutic Nutrition</Text>
+          </View>
+           
+        <Image
+            source={require('../assets/images/brand1.png')} 
+            style={styles.cardImage}
+          />
+         
+          <Text style={styles.catText}>
+          A proper diet is essential for tissue building for all stages of wound healing, but sometimes the normal diet is not enough. Juven may help by providing essential nutrients, such as arginine and glutamine, that are needed for wound healing. Juven has been clinically shown 
+          </Text>
+        </View>
+        <View style={styles.card}>
+          <View>
+          <Text style={styles.cat1}>Advance Wound Management </Text>
+          <Text style={styles.catbrand}>Therapeutic Nutrition</Text>
+          </View>
+           
+        <Image
+            source={require('../assets/images/brand1.png')} 
+            style={styles.cardImage}
+          />
+         
+          <Text style={styles.catText}>
+          A proper diet is essential for tissue building for all stages of wound healing, but sometimes the normal diet is not enough. Juven may help by providing essential nutrients, such as arginine and glutamine, that are needed for wound healing. Juven has been clinically shown 
+          </Text>
+        </View>
+        <View style={styles.card}>
+          <View>
+          <Text style={styles.cat1}>Advance Wound Management </Text>
+          <Text style={styles.catbrand}>Therapeutic Nutrition</Text>
+          </View>
+           
+        <Image
+            source={require('../assets/images/brand1.png')} 
+            style={styles.cardImage}
+          />
+         
+          <Text style={styles.catText}>
+          A proper diet is essential for tissue building for all stages of wound healing, but sometimes the normal diet is not enough. Juven may help by providing essential nutrients, such as arginine and glutamine, that are needed for wound healing. Juven has been clinically shown 
+          </Text>
+        </View>
+        </Animated.View>
       </ScrollView>
      
       <BottomNavigationBar/>

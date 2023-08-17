@@ -11,16 +11,12 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import styles from "./product";
 import BottomNavigationBar from "./BottomNavigationBar";
-import {Video} from "expo-av";
+import { Video } from "expo-av";
 const Product = () => {
-  const videoRef = useRef(null);
-
-  const playVideo = () => {
-    if (videoRef.current) {
-      videoRef.current.seek(0); // Start the video from the beginning
-      videoRef.current.play(); // Play the video
-    }
-  };
+  const video = React.useRef(null);
+  const secondVideo = React.useRef(null);
+  const [status, setStatus] = React.useState({});
+  const [statusSecondVideo, setStatusSecondVideo] = React.useState({});
   const navigation = useNavigation();
   const [showMore, setShowMore] = useState(false);
   const [searchText, setSearchText] = useState("");
@@ -30,7 +26,7 @@ const Product = () => {
   };
 
   const handleProduct = () => {
-    navigation.navigate("product");
+    navigation.navigate("BrandPage");//navigate to brand page
   };
 
   const toggleShowMore = () => {
@@ -63,35 +59,30 @@ const Product = () => {
       </View>
       <ScrollView contentContainerStyle={styles.cardContainer}>
         {/* Card 1 */}
-        <View style={styles.card}>
-          <TouchableOpacity onPress={handleProduct}>
+        <View style={styles.card1}>
+          
             <Image
-              source={require('../assets/images/product1.png')}
-              style={styles.cardImage}
+              source={require('../assets/images/videoimage.png')}
+              style={styles.cardImage1}
             />
-            <Text style={styles.cat1}>Product Catalogue </Text>
-            <Text style={styles.catText}>
-              Explore our branded portfolio and private label offerings
-            </Text>
-          </TouchableOpacity>
-      
         </View>
 
         {/* Card 2 */}
+        <TouchableOpacity onPress={handleProduct}>
         <View style={styles.card}>
           <Image
-            source={require("../assets/images/cat1.png")}
+            source={require("../assets/images/pro2.png")}
             style={styles.cardImage}
           />
-          <Text style={styles.cat2}>Customer Portal</Text>
+          <Text style={styles.cat2}> Branded Portfolio </Text>
           <Text style={styles.catText}>
             {showMore
-              ? "Retrieve product documents and request support service Retrieve product documents and request support service Retrieve product documents and request support service Retrieve product documents and request support service Retrieve product documents and request support service"
-              : "Retrieve product documents and request support service"}
+              ? "Kingenic continues to develop nutrition products that help people improve their health everyday.."
+              : "Kingenic continues to develop nutrition products that help people improve their health everyday. We offer wide range of brands for a better tommorow."}
             {"\n"}
             {showMore && (
               <TouchableOpacity onPress={toggleShowMore}>
-                <Text style={styles.seeMore}>See Less</Text>
+                <Text style={styles.seeMore}>See Less </Text>
               </TouchableOpacity>
             )}
             {!showMore && (
@@ -101,21 +92,35 @@ const Product = () => {
             )}
           </Text>
         </View>
+        </TouchableOpacity>
+        
 
         {/* Card 3 */}
         <View style={styles.card}>
           <Image
-            source={require("../assets/images/cat2.png")}
+            source={require("../assets/images/pro3.png")}
             style={styles.cardImage}
           />
-          <Text style={styles.cat2}> Learning Center </Text>
-          <Text style={styles.catText1}>
-            Find out about the latest research, and how nutrition can help you
-            stay healthy
+          <Text style={styles.cat3}> Private Label Products </Text>
+          <Text style={styles.catText3}>
+            {showMore
+              ? "Kingenic continues to develop nutrition products that help people improve their health everyday.."
+              :"With strong partnerships, we help you design your new or existing brand with innovative products and expand your business verticals"}
+            {"\n"}
+            {showMore && (
+              <TouchableOpacity onPress={toggleShowMore}>
+                <Text style={styles.seeMore}>See Less </Text>
+              </TouchableOpacity>
+            )}
+            {!showMore && (
+              <TouchableOpacity onPress={toggleShowMore}>
+                <Text style={styles.seeMore}>See More </Text>
+              </TouchableOpacity>
+            )}
           </Text>
         </View>
       </ScrollView>
-      <BottomNavigationBar/>
+      <BottomNavigationBar />
     </View>
   );
 };

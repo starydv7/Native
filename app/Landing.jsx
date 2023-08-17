@@ -34,7 +34,7 @@ const Landing = () => {
             source={require('../assets/images/product1.png')} 
             style={styles.cardImage}
           />
-          <Text style={styles.cat1}> Product Catalogue </Text>
+          <Text style={styles.cat1}>Product Catalogue </Text>
           <Text style={styles.catText}>
             Explore our branded portfolio and private label offerings
           </Text>
@@ -49,7 +49,7 @@ const Landing = () => {
           />
           <Text style={styles.cat2}>Customer Portal</Text>
           <Text style={styles.catText}>
-             Retrieve product documents and request support service
+            Retrieve product documents and request support service
           </Text>
           {/* <Text>Card 2</Text> */}
         </View>

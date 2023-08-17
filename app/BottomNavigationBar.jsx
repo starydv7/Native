@@ -17,6 +17,9 @@ const BottomNavigationBar = () => {
       <TouchableOpacity onPress={() => navigation.navigate('BrandPage')}>
         <Text style={styles.navBarItem}> Brand </Text>
       </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('BrandPage')}>
+        <Text style={styles.navBarItem}> User </Text>
+      </TouchableOpacity>
       
     </View>
   );

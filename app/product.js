@@ -3,21 +3,21 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   topmost: {
     flex: 1,
-    top:-40,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#f4f4f4', // Adding a background color for the page
   },
-  
+ 
   hello1: {
-    marginTop: 150, // Using marginTop instead of top
+    marginTop: 70, // Using marginTop instead of top
     width: 320,
     height: 74,
     fontSize: 13,
     lineHeight: 20, // Correcting the property name to lineHeight
     // textAlign: 'center', // Center aligning the text
-    marginLeft:-25,
+    marginLeft:0,
     textAlign:"left"
+
   },
   cardContainer: {
     marginTop: 10,
@@ -25,10 +25,25 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     paddingHorizontal: 10,
+    paddingBottom:90,
+    
   },
   card: {
-    width:343,
-    height:350,
+    width:350,
+    height:415,
+    top:20,
+    backgroundColor: '#FFFFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    marginHorizontal: 5,
+    marginVertical: 15,
+    borderRadius:10,
+  },
+  card1:{
+    width:"100%",
+    height:201,
     top:20,
     backgroundColor: '#f0f0f0',
     justifyContent: 'center',
@@ -39,44 +54,70 @@ const styles = StyleSheet.create({
     marginVertical: 15,
     borderRadius:10,
   },
+  cardImage1:{
+    top:5,
+    resizeMode: 'cover',
+    marginBottom: 20,
+    borderRadius:10,
+  },
   cardImage: {
     width: '100%',
     height: 200,
     resizeMode: 'cover',
-    marginBottom: 10,
+    marginBottom: 20,
+    top:-10,
+    borderRadius:10,
   },
-cardImage1:{
-    width:"100%",
-    height:"undefined",
-},
   cat1:{
     fontSize:24,
     fontWeight:700,
-    lineHeight:21.8,
+    lineHeight:24.8,
     top:10,
     textAlign:"left",
-    marginLeft:0,
+    marginLeft:-90,
   },
   cat2:{
     fontSize:24,
     fontWeight:700,
-    lineHeight:21.8,
-    top:10,
-    marginLeft:-140,
+    lineHeight:30.8,
+    top:-10,
+    marginLeft:-130,
+  },
+  cat3:{
+    fontSize:24,
+    fontWeight:700,
+    lineHeight:30.8,
+    top:-10,
+    marginLeft:-60,
   },
   cardImage2:{
     width: '100%',
     height: "100%",
     resizeMode: 'cover',
     marginBottom: 0,
+    position: 'absolute', // Use position 'absolute'
+    top: 0, // Position from top
+    left:0, // Position from left
   },
   catText:{
     fontSize:14,
     fontWeight:700,
     lineHeight:21.8,
-    top:10,
+    top:-12,
     textAlign:"left",
-    marginLeft:3,
+    marginLeft:-10,
+    padding:20,
+    color:"#425466"
+  },
+  catText3:{
+    fontSize:14,
+    fontWeight:700,
+    lineHeight:21.8,
+    top:-12,
+    textAlign:"left",
+    marginLeft:-10,
+    padding:25,
+    color:"#425466"
   },
   catText1:{
     fontSize:14,
@@ -94,7 +135,7 @@ cardImage1:{
   },
   searchInput: {
     width:"85%",
-    height: 80,
+    height: 60,
     borderWidth: 1,
     borderColor: '#ccc',
     paddingHorizontal: 10,
