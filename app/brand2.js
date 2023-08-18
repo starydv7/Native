@@ -162,7 +162,34 @@ backgroundColor:"#DEDEDE",
     zIndex: 1, // Ensure the icon is above the input field
     width:18,
     height:18,
-  }
+  },
+  roundrow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+  },
+
+  roundcard: {
+    width: '18%', // Adjust the width as needed to fit 5 cards in a row
+    borderRadius: 10, // Add borderRadius to make the card rounded
+    backgroundColor: 'transparent', // Adjust the background color as needed
+    padding: 10,
+    alignItems: 'center',
+    top:60,
+  },
+
+  roundimgcard: {
+    width: 80,
+    height: 80,
+    borderRadius: 40, // Add borderRadius to make the image inside rounded
+    backgroundColor: '#ccc', // Add a background color or image
+    marginBottom: 5,
+  },
+
+  roundcardTitle: {
+    fontSize: 14,
+    textAlign: 'center',
+  },
 
 
 });

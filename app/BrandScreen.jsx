@@ -54,6 +54,29 @@ const BrandScreen = () => {
     { id: 4, title: 'Tissue Synthesis', image: require('../assets/images/pro2.png') },
     { id: 5, title: 'Peptic Healing', image: require('../assets/images/pro2.png') },
   ];
+  const additionalCardsData = [
+    { id: 6, title: 'Card 6', image: require('../assets/images/pro2.png') },
+    { id: 7, title: 'Card 7', image: require('../assets/images/pro2.png') },
+    { id: 8, title: 'Card 8', image: require('../assets/images/pro2.png') },
+    { id: 9, title: 'Card 9', image: require('../assets/images/pro2.png') },
+    
+  ];
+  const renderAdditionalCards = () => {
+    const additionalCardViews = additionalCardsData.map((card) => (
+      <View style={styles.roundcard} key={card.id}>
+        <View style={styles.roundimgcard}>
+          {/* <Image source={card.image} style={styles.cardImage} /> */}
+        </View>
+        {/* <Text style={styles.roundcardTitle}>{card.title}</Text> */}
+      </View>
+    ));
+
+    return (
+      <View style={styles.roundrow}>
+        {additionalCardViews}
+      </View>
+    );
+  };
   const renderCards = () => {
     const rows = [];
     for (let i = 0; i < cardsData.length; i += 2) {
@@ -93,9 +116,8 @@ const BrandScreen = () => {
           />
       </View>
           {renderCards()}
+          {renderAdditionalCards()}
       </ScrollView>
-
-     
       <BottomNavigationBar/>
     </View>
   );
