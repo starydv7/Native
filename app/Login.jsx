@@ -16,7 +16,10 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const navigation = useNavigation();
-
+  const handleSignup = () => {
+    navigation.navigate("Signup");
+    //navigate to signup page
+  };
   // useEffect(() => {
   //   const unsubscribe = auth.onAuthStateChanged(user => {
   //     if (user) {
@@ -81,7 +84,9 @@ const Login = () => {
         </TouchableOpacity> */}
             <View style={styles.registerContainer}>
               <Text style={styles.register}>Not a Memeber? </Text>
+              <TouchableOpacity onPress={handleSignup}>
               <Text style={styles.registerText}> Register </Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
