@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 // create a component
-const MyComponenSignup = () => {
+const Signup = () => {
     return (
         <View style={styles.container}>
             <Text>Signup</Text>

@@ -15,9 +15,9 @@ const Landing = () => {
   // const handleNavigateBack = () => {
   //   navigation.goBack(); // Go back to the previous screen
   // };
-  // const handleProduct=()=>{
-  //   navigation.navigate("product");
-  // }
+  const handleCustomer=()=>{
+    navigation.navigate("Login");
+  }
 
   return (
     <View style={styles.topmost}>
@@ -42,6 +42,7 @@ const Landing = () => {
         </TouchableOpacity>
 
         {/* Card 2 */}
+        <TouchableOpacity onPress={handleCustomer}>
         <View style={styles.card}>
         <Image
             source={require('../assets/images/cat1.png')} 
@@ -53,6 +54,7 @@ const Landing = () => {
           </Text>
           {/* <Text>Card 2</Text> */}
         </View>
+        </TouchableOpacity>
 
         {/* Card 3 */}
         <View style={styles.card}>
