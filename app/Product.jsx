@@ -28,7 +28,9 @@ const Product = () => {
   const handleProduct = () => {
     navigation.navigate("BrandPage");//navigate to brand page
   };
-
+  const handlePrivate = () => {
+    navigation.navigate("PrivateScreen");//navigate to Private page
+  };
   const toggleShowMore = () => {
     setShowMore(!showMore);
   };
@@ -96,6 +98,7 @@ const Product = () => {
         
 
         {/* Card 3 */}
+        <TouchableOpacity onPress={handlePrivate}>
         <View style={styles.card}>
           <Image
             source={require("../assets/images/pro3.png")}
@@ -119,6 +122,7 @@ const Product = () => {
             )}
           </Text>
         </View>
+        </TouchableOpacity>
       </ScrollView>
       <BottomNavigationBar />
     </View>
