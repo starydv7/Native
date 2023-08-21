@@ -4,7 +4,34 @@
     "web": {
       "bundler": "metro"
     },
+    "build": {
+      "preview": {
+        "android": {
+          "buildType": "apk"
+        }
+      },
+      "preview2": {
+        "android": {
+          "gradleCommand": ":app:assembleRelease"
+        }
+      },
+      "preview3": {
+        "developmentClient": true
+      },
+      "production": {}
+    },
     "name": "Native",
-    "slug": "Native"
+    "slug": "Native",
+    "extra": {
+      "eas": {
+        "projectId": "7a00572f-524d-4069-a4a1-c7e4bd5dfbb4"
+      }
+    },
+    "android": {
+      "package": "com.starydv703.Native"
+    },
+    "ios": {
+      "bundleIdentifier": "com.starydv703.Native"
+    }
   }
 }
