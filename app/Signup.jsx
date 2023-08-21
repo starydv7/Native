@@ -9,14 +9,17 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import CheckBox from 'react-native-check-box';
-
+import CustomCheckbox from './CustomCheckbox';
+import { useFonts } from 'expo-font';
 // create a component
 const Signup = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isChecked, setIsChecked] = useState(false);
 
+  const toggleCheckbox = () => {
+    setIsChecked(!isChecked);
+  };
   const navigation = useNavigation();
 
   // useEffect(() => {
@@ -28,25 +31,25 @@ const Signup = () => {
 
   //   return unsubscribe
   // }, [])
-  // const handleSignUp = () => {
-  //   auth
-  //     .createUserWithEmailAndPassword(email, password)
-  //     .then(userCredentials => {
-  //       const user = userCredentials.user;
-  //       console.log('Registered with:', user.email);
-  //     })
-  //     .catch(error => alert(error.message))
-  // }
+  const handleSignUp = () => {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log('Registered with:', user.email);
+      })
+      .catch(error => alert(error.message))
+  }
 
-  // const handleLogin = () => {
-  //   auth
-  //     .signInWithEmailAndPassword(email, password)
-  //     .then(userCredentials => {
-  //       const user = userCredentials.user;
-  //       console.log('Logged in with:', user.email);
-  //     })
-  //     .catch(error => alert(error.message))
-  // }
+  const handleLogin = () => {
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log('Logged in with:', user.email);
+      })
+      .catch(error => alert(error.message))
+  }
 
   return (
     <KeyboardAvoidingView  style={{ flex: 1 }}
@@ -96,11 +99,8 @@ const Signup = () => {
           
         </TouchableOpacity> */}
             <View style={styles.checkboxContainer}>
-            <CheckBox
-              isChecked={isChecked}
-              onClick={() => setIsChecked(!isChecked)}
-              checkBoxColor="#0782F9" // Set the color of the checkbox
-            />
+            
+      <CustomCheckbox checked={isChecked} onPress={toggleCheckbox} />
             <Text style={styles.checkboxLabel}>
               I agree to the Privacy Policy and Terms
             </Text>
@@ -138,12 +138,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     letterSpacing: 0.5,
     fontWeight: 900,
+     fontFamily: 'Inter', // Apply the Inter font here
   },
   welcome2:{
     fontSize: 12,
     letterSpacing: 1,
     fontWeight: 400,
     top:-15,
+    fontFamily: 'Inter', // Apply the Inter font here
   },
   input: {
     width: 327,
@@ -154,6 +156,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     top: 10,
     paddingLeft: 10,
+    
   },
   buttonContainer: {
     width: "100%",
@@ -178,6 +181,8 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "700",
     fontSize: 16,
+    fontFamily: 'Inter',
+    
   },
   buttonOutlineText: {
     color: "#0782F9",
@@ -214,6 +219,14 @@ const styles = StyleSheet.create({
     fontSize:12,
     
     
+  },
+  checkboxContainer:{
+    flexDirection:"row",
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  checkboxLabel:{
+    flexDirection:"row",
   }
 });
 
