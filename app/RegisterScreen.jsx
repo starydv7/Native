@@ -5,7 +5,10 @@ const RegisterScreen = () => {
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.logo}>Your Logo</Text>
+            <View style={styles.logosign}>
+                    <Image source={require('../assets/images/add-user.png')} style={styles.logoImage} />
+                </View>
+                
                 <Text style={styles.subtitle}>Sign Up </Text>
             </View>
             
@@ -122,6 +125,17 @@ const styles = StyleSheet.create({
     requestAccess: {
         marginTop: 20,
         fontSize: 12,
+    },
+    logosign: {
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        overflow: 'hidden',
+    },
+    logoImage: {
+        width: '100%',
+        height: '100%',
+        resizeMode: 'cover',
     },
 });
 
