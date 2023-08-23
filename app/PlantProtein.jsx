@@ -11,11 +11,11 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 // create a component
-const SportBrand = () => {
+const PlantProtein = () => {
   const navigation = useNavigation();
   const brandNames = [
     { name: "Dairy Protein", screen: "DairyScreen" },
-    { name: "Plant Protein", screen: "PlantProteinScreen" },
+    { name: "Plant Protein", screen: "PlantProtein" },
     { name: "Amino Acid", screen: "AminoAcidScreen" },
     { name: "Nutra", screen: "NutraScreen" },
     { name: "Brand 5", screen: "Brand5Screen" },
@@ -37,15 +37,25 @@ const SportBrand = () => {
       image: require("../assets/images/muscles.png"),
     },
     {
-      title: "ULTRA WHEY PROTEIN",
-      subtitle:
-        "Active Ingredients: Milk Protein Concentrate, Whey Protein Concentrate, L-Glutamine",
-      productType: "Drink Mix",
-      packagingType: "Sachet, Jar, Flat Bottom Pouch, Stand Up Pouch, Bucket",
-      explore: "Explore 1",
-      labelClaim: "Label Claim 1",
-      image: require("../assets/images/muscles.png"),
-    },
+        title: "ULTRA WHEY PROTEIN",
+        subtitle:
+          "Active Ingredients: Milk Protein Concentrate, Whey Protein Concentrate, L-Glutamine",
+        productType: "Drink Mix",
+        packagingType: "Sachet, Jar, Flat Bottom Pouch, Stand Up Pouch, Bucket",
+        explore: "Explore 1",
+        labelClaim: "Label Claim 1",
+        image: require("../assets/images/muscles.png"),
+      },
+      {
+        title: "ULTRA WHEY PROTEIN",
+        subtitle:
+          "Active Ingredients: Milk Protein Concentrate, Whey Protein Concentrate, L-Glutamine",
+        productType: "Drink Mix",
+        packagingType: "Sachet, Jar, Flat Bottom Pouch, Stand Up Pouch, Bucket",
+        explore: "Explore 1",
+        labelClaim: "Label Claim 1",
+        image: require("../assets/images/muscles.png"),
+      },
     // Add more card data objects as needed
   ];
   const handleNavigateBack = () => {
@@ -55,7 +65,6 @@ const SportBrand = () => {
     // Navigate to the specified screen using the navigation object
     navigation.navigate(screen);
   };
- 
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -67,7 +76,7 @@ const SportBrand = () => {
                 style={styles.searchIcon}
               />
             </TouchableOpacity>
-            <Text style={styles.portfolioText}>Sports Nutrition </Text>
+            <Text style={styles.portfolioText}>Plant Protein </Text>
           </View>
           <Text style={styles.text}>
             Slide through the sub-categories to find the right fit product for
@@ -294,4 +303,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default SportBrand;
+export default PlantProtein;

@@ -16,7 +16,7 @@ const Landing = () => {
   //   navigation.goBack(); // Go back to the previous screen
   // };
   const handleCustomer=()=>{
-    navigation.navigate("Login");
+    navigation.navigate("CustomerLogin");
   }
 
   return (
@@ -48,7 +48,7 @@ const Landing = () => {
             source={require('../assets/images/cat1.png')} 
             style={styles.cardImage}
           />
-          <Text style={styles.cat2}>Customer Portal</Text>
+          <Text style={styles.cat2}>Customer Portal </Text>
           <Text style={styles.catText}>
             Retrieve product documents and request support service
           </Text>

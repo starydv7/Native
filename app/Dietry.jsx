@@ -11,11 +11,11 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 // create a component
-const SportBrand = () => {
+const  Dietry = () => {
   const navigation = useNavigation();
   const brandNames = [
     { name: "Dairy Protein", screen: "DairyScreen" },
-    { name: "Plant Protein", screen: "PlantProteinScreen" },
+    { name: "Plant Protein", screen: "PlantProtein" },
     { name: "Amino Acid", screen: "AminoAcidScreen" },
     { name: "Nutra", screen: "NutraScreen" },
     { name: "Brand 5", screen: "Brand5Screen" },
@@ -37,15 +37,25 @@ const SportBrand = () => {
       image: require("../assets/images/muscles.png"),
     },
     {
-      title: "ULTRA WHEY PROTEIN",
-      subtitle:
-        "Active Ingredients: Milk Protein Concentrate, Whey Protein Concentrate, L-Glutamine",
-      productType: "Drink Mix",
-      packagingType: "Sachet, Jar, Flat Bottom Pouch, Stand Up Pouch, Bucket",
-      explore: "Explore 1",
-      labelClaim: "Label Claim 1",
-      image: require("../assets/images/muscles.png"),
-    },
+        title: "ULTRA WHEY PROTEIN",
+        subtitle:
+          "Active Ingredients: Milk Protein Concentrate, Whey Protein Concentrate, L-Glutamine",
+        productType: "Drink Mix",
+        packagingType: "Sachet, Jar, Flat Bottom Pouch, Stand Up Pouch, Bucket",
+        explore: "Explore 1",
+        labelClaim: "Label Claim 1",
+        image: require("../assets/images/muscles.png"),
+      },
+      {
+        title: "ULTRA WHEY PROTEIN",
+        subtitle:
+          "Active Ingredients: Milk Protein Concentrate, Whey Protein Concentrate, L-Glutamine",
+        productType: "Drink Mix",
+        packagingType: "Sachet, Jar, Flat Bottom Pouch, Stand Up Pouch, Bucket",
+        explore: "Explore 1",
+        labelClaim: "Label Claim 1",
+        image: require("../assets/images/muscles.png"),
+      },
     // Add more card data objects as needed
   ];
   const handleNavigateBack = () => {
@@ -55,7 +65,6 @@ const SportBrand = () => {
     // Navigate to the specified screen using the navigation object
     navigation.navigate(screen);
   };
- 
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -67,7 +76,7 @@ const SportBrand = () => {
                 style={styles.searchIcon}
               />
             </TouchableOpacity>
-            <Text style={styles.portfolioText}>Sports Nutrition </Text>
+            <Text style={styles.portfolioText}>Dietry </Text>
           </View>
           <Text style={styles.text}>
             Slide through the sub-categories to find the right fit product for
@@ -85,7 +94,7 @@ const SportBrand = () => {
                   style={styles.brandItem}
                   onPress={() => handleBrandPress(brand.screen)}
                 >
-                  <View>
+                  <View style={styles.brandContent}>
                     <Text style={styles.brandText}> {brand.name} </Text>
                   </View>
                 </TouchableHighlight>
@@ -162,6 +171,7 @@ const styles = StyleSheet.create({
     fontWeight: 400,
     left: -25,
     color: "#8E00FD",
+    
   },
   brandListContainer: {
     left: 1,
@@ -171,11 +181,18 @@ const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: "white",
   },
+  brandContent:{
+
+marginTop:20,
+  },
   rowContainer: {
     flexDirection: "row", // Display children in a row layout
     alignItems: "center", // Center items vertically
     padding: 20,
     top: 30,
+  },
+  brandItem:{
+   marginTop:-20,
   },
   searchIcon: {
     width: 10,
@@ -187,7 +204,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     justifyContent: "center",
-    marginLeft: "25%",
+    marginLeft: "35%",
   },
 
   text: {
@@ -205,11 +222,11 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   scrollright: {
-    top: "10%",
+    top: "5%",
     left: 20,
   },
   cardContainer: {
-    marginTop: "40%",
+    marginTop: "30%",
     alignItems: "center",
     marginHorizontal: 14,
   },
@@ -294,4 +311,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default SportBrand;
+export default Dietry;
