@@ -34,6 +34,7 @@ const SportBrand = () => {
       packagingType: "Sachet, Jar, Flat Bottom Pouch, Stand Up Pouch, Bucket",
       explore: "Explore 1",
       labelClaim: "Label Claim 1",
+      image: require("../assets/images/muscles.png"),
     },
     {
       title: "Card 2 Title",
@@ -50,71 +51,91 @@ const SportBrand = () => {
   };
   return (
     <ScrollView>
-    <View style={styles.container}>
-      <View style={styles.maincontainer}>
-        <View style={styles.rowContainer}>
-          <TouchableOpacity onPress={handleNavigateBack}>
-            <Image
-              source={require("../assets/images/arrow.png")}
-              style={styles.searchIcon}
-            />
-          </TouchableOpacity>
-          <Text style={styles.portfolioText}>Sports Nutrition </Text>
-        </View>
-        <Text style={styles.text}>
-          Slide through the sub-categories to find the right fit product for
-          your fitness brand.{" "}
-        </Text>
-        <View style={styles.maincontent}></View>
-        <View style={styles.scrollright}>
-          <ScrollView
-            horizontal
-            contentContainerStyle={styles.brandListContainer}
-          >
-            {brandNames.map((brand, index) => (
-              <TouchableHighlight
-                key={index}
-                style={styles.brandItem}
-                onPress={() => handleBrandPress(brand.screen)}
-              >
-                <View>
-                  <Text style={styles.brandText}> {brand.name} </Text>
+      <View style={styles.container}>
+        <View style={styles.maincontainer}>
+          <View style={styles.rowContainer}>
+            <TouchableOpacity onPress={handleNavigateBack}>
+              <Image
+                source={require("../assets/images/arrow.png")}
+                style={styles.searchIcon}
+              />
+            </TouchableOpacity>
+            <Text style={styles.portfolioText}>Sports Nutrition </Text>
+          </View>
+          <Text style={styles.text}>
+            Slide through the sub-categories to find the right fit product for
+            your fitness brand.{" "}
+          </Text>
+          <View style={styles.maincontent}></View>
+          <View style={styles.scrollright}>
+            <ScrollView
+              horizontal
+              contentContainerStyle={styles.brandListContainer}
+            >
+              {brandNames.map((brand, index) => (
+                <TouchableHighlight
+                  key={index}
+                  style={styles.brandItem}
+                  onPress={() => handleBrandPress(brand.screen)}
+                >
+                  <View>
+                    <Text style={styles.brandText}> {brand.name} </Text>
+                  </View>
+                </TouchableHighlight>
+              ))}
+            </ScrollView>
+          </View>
+
+          <View style={styles.cardContainer}>
+            {cardData.map((card, index) => (
+              <View key={index} style={styles.card}>
+                <Text style={styles.cardTitle}>{card.title}</Text>
+                <Text style={styles.cardSubtitle}>{card.subtitle}</Text>
+                <View style={styles.brandName}>
+                  <View style={styles.musclesRow}>
+                    <Image
+                      source={require("../assets/images/muscles.png")}
+                      style={styles.musclesIcon}
+                    />
+                    <Text style={styles.musclesText}>
+                      Muscles {"\n"}Recovery
+                    </Text>
+                  </View>
+                  <View style={styles.divider} />
+                  <View style={styles.musclesRow}>
+                    <Image
+                      source={require("../assets/images/muscles.png")}
+                      style={styles.musclesIcon}
+                    />
+                    <Text style={styles.musclesText}>
+                      Muscles {"\n"}Recovery
+                    </Text>
+                  </View>
+                  <View style={styles.divider} />
+                  <View style={styles.musclesRow}>
+                    <Image
+                      source={require("../assets/images/muscles.png")}
+                      style={styles.musclesIcon}
+                    />
+                    <Text style={styles.musclesText}>
+                      Muscles {"\n"}Recovery
+                    </Text>
+                  </View>
                 </View>
-              </TouchableHighlight>
-            ))}
-          </ScrollView>
-        </View>
-        
-        <View style={styles.cardContainer}>
-        
-          {cardData.map((card, index) => (
-            <View key={index} style={styles.card}>
-              <Text style={styles.cardTitle}>{card.title}</Text>
-              <Text style={styles.cardSubtitle}>{card.subtitle}</Text>
-              <View style={styles.brandName}>
-                <Text style={styles.muscles}>Muscles {'\n'}Recovery</Text>
-                <View style={styles.divider} />
-                <Text>Muscles {'\n'}Recovery</Text>
-                <View style={styles.divider} />
-                <Text>Muscles {'\n'}Recovery</Text>
+                <Text style={styles.cardText}>
+                  Product Type : {card.productType}
+                </Text>
+                <Text style={styles.cardText}>
+                  <Text style={styles.boldText}>Packaging Type:</Text>{" "}
+                  {card.packagingType}
+                </Text>
+                <Text style={styles.cardText}>{card.explore}</Text>
+                <Text style={styles.cardText}>{card.labelClaim}</Text>
               </View>
-              <Text style={styles.cardText}>
-                {" "}
-                Product Type : {card.productType}
-              </Text>
-              <Text style={styles.cardText}>
-                {" "}
-                Packaging Type: {card.packagingType}
-              </Text>
-              <Text style={styles.cardText}>{card.explore}</Text>
-              <Text style={styles.cardText}>{card.labelClaim}</Text>
-            </View>
-          ))}
+            ))}
+          </View>
         </View>
-       
-        
       </View>
-    </View>
     </ScrollView>
   );
 };
@@ -133,10 +154,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 400,
     left: -25,
-    color:"#8E00FD",
+    color: "#8E00FD",
   },
-  brandListContainer:{
-    left:1,
+  brandListContainer: {
+    left: 1,
   },
   maincontainer: {
     width: "100%",
@@ -192,7 +213,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 10,
     padding: 20,
-    top:0,
+    top: 0,
     justifyContent: "space-between",
     marginBottom: 20, // Add margin to create a gap between cards
     transform: [{ scaleY: 1 }], // Flip the card vertically
@@ -223,7 +244,7 @@ const styles = StyleSheet.create({
   },
 
   cardText: {
-    fontSize: 16,
+    fontSize: 8,
     marginTop: 5,
   },
   brandName: {
@@ -239,12 +260,30 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flexGrow: 1,
-  
   },
-  muscles:{
-    fontSize:10,
-    fontWeight:500,
-  }
+  muscles: {
+    fontSize: 10,
+    fontWeight: 500,
+  },
+  musclesRow: {
+    width: "30%",
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  musclesIcon: {
+    width: 40,
+    height: 40,
+    marginRight: 5,
+  },
+  musclesText: {
+    fontSize: 10,
+    fontWeight: "bold",
+  },
+  boldText: {
+    fontSize:8,
+    fontWeight: 700,
+  },
 });
 
 //make this component available to the app
