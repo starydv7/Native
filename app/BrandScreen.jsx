@@ -35,6 +35,9 @@ const BrandScreen = () => {
   const handleNavigateBack = () => {
     navigation.goBack(); // Go back to the previous screen
   };
+  const handleCardPress = (screenName) => {
+    navigation.navigate(screenName);
+  };
 
   const handleProduct = () => {
     navigation.navigate("BrandScreen");
@@ -48,7 +51,7 @@ const BrandScreen = () => {
     console.log("Search Text:", searchText);
   };
   const cardsData = [
-    { id: 1, title: 'Pre-Surgery', image: require('../assets/images/pro2.png') },
+    { id: 1, title: 'Pre-Surgery', image: require('../assets/images/pro2.png'),screen:"PreSurgeryScreen" },
     { id: 2, title: 'Surgery Support', image: require('../assets/images/pro2.png') },
     { id: 3, title: 'Optimum Healing', image: require('../assets/images/pro2.png') },
     { id: 4, title: 'Tissue Synthesis', image: require('../assets/images/pro2.png') },
@@ -90,13 +93,15 @@ const BrandScreen = () => {
     return rows;
   };
   const renderCard = (card) => (
-    <View style={styles.card} key={card.id}>
-        <View style={styles.imgcard}>
+    <TouchableOpacity
+      style={styles.card}
+      key={card.id}
+      onPress={() => handleCardPress(card.screen)}>
+      <View style={styles.imgcard}>
         {/* <Image source={card.image} style={styles.cardImage} /> */}
-        </View>
-      
+      </View>
       <Text style={styles.cardTitle}>{card.title}</Text>
-    </View>
+    </TouchableOpacity>
   );
   
   return (

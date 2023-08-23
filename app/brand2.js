@@ -165,8 +165,9 @@ backgroundColor:"#DEDEDE",
   },
   roundrow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 20,
+    justifyContent: 'space-between', // Adjust as needed
+    alignItems: 'center', // Adjust as needed
+    marginTop: 20, // Adjust as needed
   },
 
   roundcard: {
