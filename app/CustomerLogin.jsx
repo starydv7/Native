@@ -1,116 +1,124 @@
-import React, { useState,useRef } from "react";
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Modal } from "react-native";
+import React, { useState, useRef } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+  Modal,
+} from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
 const CustomerLogin = () => {
-    const [generatedOtp, setGeneratedOtp] = useState(generateRandomOtp());
-    const [userOtp, setUserOtp] = useState(["", "", "", "", "", ""]);
-    const [isValidOtp, setIsValidOtp] = useState(false);
-    const [modalVisible, setModalVisible] = useState(false);
-  
-    const otpInputs = useRef([]);
-  
-    function generateRandomOtp() {
-      return Math.floor(100000 + Math.random() * 900000).toString();
+  const [generatedOtp, setGeneratedOtp] = useState(generateRandomOtp());
+  const [userOtp, setUserOtp] = useState(["", "", "", "", "", ""]);
+  const [isValidOtp, setIsValidOtp] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation();
+  const otpInputs = useRef([]);
+
+  function generateRandomOtp() {
+    return Math.floor(100000 + Math.random() * 900000).toString();
+  }
+
+  function handleOtpChange(index, value) {
+    const updatedOtp = [...userOtp];
+    updatedOtp[index] = value;
+    setUserOtp(updatedOtp);
+
+    if (index < otpInputs.current.length - 1 && value) {
+      otpInputs.current[index + 1].focus();
     }
-  
-    function handleOtpChange(index, value) {
+  }
+
+  function handleVerifyOtp() {
+    const enteredOtp = userOtp.join("");
+    setIsValidOtp(enteredOtp === generatedOtp);
+    setModalVisible(true);
+  }
+  function handleKeyPress(index, e) {
+    const digit = e.nativeEvent.key;
+    if (/[0-9]/.test(digit) && index < otpInputs.current.length - 1) {
       const updatedOtp = [...userOtp];
-      updatedOtp[index] = value;
+      updatedOtp[index] = digit;
       setUserOtp(updatedOtp);
-  
-      if (index < otpInputs.current.length - 1 && value) {
-        otpInputs.current[index + 1].focus();
-      }
+      otpInputs.current[index + 1].focus();
+    } else if (digit === "Backspace" && index > 0) {
+      const updatedOtp = [...userOtp];
+      updatedOtp[index] = "";
+      setUserOtp(updatedOtp);
+      otpInputs.current[index - 1].focus();
     }
-  
-    function handleVerifyOtp() {
-      const enteredOtp = userOtp.join("");
-      setIsValidOtp(enteredOtp === generatedOtp);
-      setModalVisible(true);
+  }
+  function handleContinue() {
+    if (isValidOtp) {
+     // Get the navigation object
+      navigation.navigate("RegisterScreen"); // Replace 'RegisterScreen' with your actual screen name
     }
-  
-    function handleContinue() {
-      if (isValidOtp) {
-        // Navigate to the next screen
-        // Add your navigation logic here
-      }
-    }
-    function handleKeyPress(index, e) {
-        const digit = e.nativeEvent.key;
-        if (/[0-9]/.test(digit) && index < otpInputs.current.length - 1) {
-          const updatedOtp = [...userOtp];
-          updatedOtp[index] = digit;
-          setUserOtp(updatedOtp);
-          otpInputs.current[index + 1].focus();
-        } else if (digit === 'Backspace' && index > 0) {
-          const updatedOtp = [...userOtp];
-          updatedOtp[index] = '';
-          setUserOtp(updatedOtp);
-          otpInputs.current[index - 1].focus();
-        }
-      }
-    
-  
-    return (
-      <View style={styles.container}>
-        <Text style={styles.pageTitle}>Welcome!</Text>
-        <Text style={styles.pageSubtitle}>
-          Our private label supplement customer portal makes it easy to get
-          the information and technical documentation related to your brand
-        </Text>
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Enter permanent access code</Text>
-          <Text style={styles.generatedOtp}>Generated OTP: {generatedOtp}</Text>
-          <View style={styles.otpContainer}>
-            {userOtp.map((digit, index) => (
-             <TextInput
-             key={index}
-             ref={(ref) => (otpInputs.current[index] = ref)}
-             style={[
-               styles.otpInput,
-               { borderColor: digit ? '#000' : '#ccc' },
-             ]}
-             value={digit}
-             onChangeText={(value) => handleOtpChange(index, value)}
-             onKeyPress={(e) => handleKeyPress(index, e)}
-             keyboardType="numeric"
-             maxLength={1}
-           />
-            ))}
-          </View>
-          <Text style={styles.forgotText}>Forgot permanent access code?</Text>
-          <TouchableOpacity style={styles.verifyButton} onPress={handleVerifyOtp}>
-            <Text style={styles.verifyButtonText}>Verify OTP</Text>
-          </TouchableOpacity>
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={modalVisible}
-            onRequestClose={() => {
-              setModalVisible(false);
-              if (isValidOtp) {
-                handleContinue();
-              }
-            }}
-          >
-            <View style={styles.modalContainer}>
-              <View style={styles.modalContent}>
-                <Text style={styles.modalText}>
-                  {isValidOtp ? "OTP is correct! " : "Incorrect OTP. Please try again. "}
-                </Text>
-                <TouchableOpacity
-                  style={styles.modalButton}
-                  onPress={() => setModalVisible(false)}
-                >
-                  <Text style={styles.modalButtonText}> Close </Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </Modal>
+  }
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.pageTitle}>Welcome!</Text>
+      <Text style={styles.pageSubtitle}>
+        Our private label supplement customer portal makes it easy to get the
+        information and technical documentation related to your brand
+      </Text>
+      <View style={styles.card}>
+        <Text style={styles.cardTitle}>Enter permanent access code</Text>
+        <Text style={styles.generatedOtp}>Generated OTP: {generatedOtp}</Text>
+        <View style={styles.otpContainer}>
+          {userOtp.map((digit, index) => (
+            <TextInput
+              key={index}
+              ref={(ref) => (otpInputs.current[index] = ref)}
+              style={[
+                styles.otpInput,
+                { borderColor: digit ? "#000" : "#ccc" },
+              ]}
+              value={digit}
+              onChangeText={(value) => handleOtpChange(index, value)}
+              onKeyPress={(e) => handleKeyPress(index, e)}
+              keyboardType="numeric"
+              maxLength={1}
+            />
+          ))}
         </View>
+        <Text style={styles.forgotText}>Forgot permanent access code?</Text>
+        <TouchableOpacity style={styles.verifyButton} onPress={handleVerifyOtp}>
+          <Text style={styles.verifyButtonText}>Verify OTP</Text>
+        </TouchableOpacity>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => setModalVisible(false)}
+        >
+          <View style={styles.modalContainer}>
+            <View style={styles.modalContent}>
+              <Text style={styles.modalText}>
+                {isValidOtp
+                  ? "OTP is correct! "
+                  : "Incorrect OTP. Please try again. "}
+              </Text>
+              <TouchableOpacity
+                style={styles.modalButton}
+                onPress={() => {
+                  setModalVisible(false);
+                  if (isValidOtp) {
+                    handleContinue();
+                  }
+                }}
+              >
+                <Text style={styles.modalButtonText}> Close </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
       </View>
-    );
-  };
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -123,8 +131,8 @@ const styles = StyleSheet.create({
     fontSize: 34,
     fontWeight: 900,
     marginBottom: 10,
-    top:"-22%",
-    left:"-25%"
+    top: "-22%",
+    left: "-25%",
   },
   pageSubtitle: {
     fontSize: 13,
@@ -132,7 +140,7 @@ const styles = StyleSheet.create({
     marginLeft: "5%", // Use marginLeft instead of top and left for better alignment
     marginRight: "5%", // Add some right margin for better spacing
     textAlign: "center", // Center-align the text
-    top:"-23%",
+    top: "-23%",
   },
   card: {
     backgroundColor: "#fff",
@@ -205,12 +213,11 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
   },
-  forgotText:{
-    fontSize:12,
-    color:"#6F00FD",
-    textAlign:"center",
-
-  }
+  forgotText: {
+    fontSize: 12,
+    color: "#6F00FD",
+    textAlign: "center",
+  },
 });
 
 export default CustomerLogin;
