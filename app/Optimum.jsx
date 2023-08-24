@@ -10,7 +10,7 @@ import {
 import BottomNavigationBar from "./BottomNavigationBar";
 import { useNavigation } from "expo-router";
 
-const Surgery = () => {
+const Optimum = () => {
   const [showMore, setShowMore] = useState(false);
   const navigation = useNavigation();
   const toggleShowMore = () => {
@@ -47,7 +47,7 @@ const Surgery = () => {
         
       </View>
       <View style={styles.box2}>
-        <Text style={styles.container2Title}>Pre-Surgery </Text>
+        <Text style={styles.container2Title}>Optimum </Text>
         <View style={styles.titleContainer}>
           <Text style={styles.starIcon}>★</Text>
           <Text style={styles.titleText}>Brand : Wûne </Text>
@@ -448,4 +448,4 @@ const styles = StyleSheet.create({
  
 });
 
-export default Surgery;
+export default Optimum;

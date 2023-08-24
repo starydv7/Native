@@ -53,9 +53,9 @@ const BrandScreen = () => {
   const cardsData = [
     { id: 1, title: 'Pre-Surgery', image: require('../assets/images/pro2.png'),screen:"PreSurgeryScreen" },
     { id: 2, title: 'Surgery Support', image: require('../assets/images/pro2.png') ,screen:"Surgery"},
-    { id: 3, title: 'Optimum Healing', image: require('../assets/images/pro2.png') },
-    { id: 4, title: 'Tissue Synthesis', image: require('../assets/images/pro2.png') },
-    { id: 5, title: 'Peptic Healing', image: require('../assets/images/pro2.png') },
+    { id: 3, title: 'Optimum Healing', image: require('../assets/images/pro2.png'),screen:"Optimum" },
+    { id: 4, title: 'Tissue Synthesis', image: require('../assets/images/pro2.png'),screen:"TissueSynthesis" },
+    { id: 5, title: 'Peptic Healing', image: require('../assets/images/pro2.png'),screen:"PepticHealing" },
   ];
   const additionalCardsData = [
     { id: 6, title: 'Card 6', image: require('../assets/images/pro2.png') },
